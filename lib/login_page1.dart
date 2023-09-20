@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app1/login_page1.dart';
+//import 'package:flutter_app1/login_page1.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -38,6 +38,8 @@ class _Login_statefulState extends State<Login_stateful> {
                   !uname.contains('@') ||
                   !uname.contains('.com')) {
                 return 'username must not be empty/ or invalid';
+              } else {
+                return null;
               }
             },
           ),
