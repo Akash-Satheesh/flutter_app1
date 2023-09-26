@@ -13,9 +13,9 @@ class ListView1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Listview 1'),
-      ),
+      //appBar: AppBar(
+      //title: Text('Listview 1'),
+      //  ),
       body: ListView(
         children: [
           Card(

@@ -9,6 +9,7 @@ void main() {
   ));
 }
 
+// ignore: must_be_immutable
 class LoginPage extends StatelessWidget {
   String username = "admin@gmail.com";
   String password = 'abc123';
