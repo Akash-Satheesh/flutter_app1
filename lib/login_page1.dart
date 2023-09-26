@@ -19,6 +19,7 @@ class _Login_statefulState extends State<Login_stateful> {
   final formkey = GlobalKey<FormState>();
   String username = "admin@gmail.com";
   String password = 'abc@123';
+  bool passwordhidden = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +29,7 @@ class _Login_statefulState extends State<Login_stateful> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                   border: OutlineInputBorder(), hintText: 'Username'),
               validator: (uname) {
                 if (uname!.isEmpty || uname != username) {
@@ -42,7 +43,23 @@ class _Login_statefulState extends State<Login_stateful> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextFormField(
-              decoration: const InputDecoration(
+              obscureText: passwordhidden,
+              obscuringCharacter: '*',
+              decoration: InputDecoration(
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      if (passwordhidden == true) {
+                        passwordhidden = false;
+                      } else {
+                        passwordhidden = true;
+                      }
+                    });
+                  },
+                  icon: Icon(passwordhidden == true
+                      ? Icons.visibility_off_sharp
+                      : Icons.visibility),
+                ),
                 border: OutlineInputBorder(),
                 hintText: 'Password',
               ),

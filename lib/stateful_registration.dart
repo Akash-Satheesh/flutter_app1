@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/login_page.dart';
 //import 'package:flutter_app1/login_page.dart';
-import 'package:flutter_app1/login_page1.dart';
+//import 'package:flutter_app1/login_page1.dart';
 //import 'package:flutter_app1/login_page1.dart';
 //import 'package:flutter_app1/login_page1.dart';
 
@@ -20,6 +21,8 @@ class Registration_stateful extends StatefulWidget {
 class _Registration_statefulState extends State<Registration_stateful> {
   final formkey = GlobalKey<FormState>();
   String? pass;
+  bool passwordhidden = true;
+  bool cpasshidden = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +71,8 @@ class _Registration_statefulState extends State<Registration_stateful> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: TextFormField(
+                obscuringCharacter: "*",
+                obscureText: passwordhidden,
                 validator: (password) {
                   pass = password;
                   if (password!.isEmpty || password.length < 6) {
@@ -76,7 +81,20 @@ class _Registration_statefulState extends State<Registration_stateful> {
                     return null;
                   }
                 },
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          if (passwordhidden == true) {
+                            passwordhidden = false;
+                          } else {
+                            passwordhidden = true;
+                          }
+                        });
+                      },
+                      icon: Icon(passwordhidden == true
+                          ? Icons.visibility_off_sharp
+                          : Icons.visibility)),
                   border: OutlineInputBorder(),
                   hintText: 'Password',
                 ),
@@ -85,8 +103,24 @@ class _Registration_statefulState extends State<Registration_stateful> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: TextFormField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), hintText: 'Confirm Password'),
+                obscureText: cpasshidden,
+                obscuringCharacter: "*",
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Confirm Password',
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            if (cpasshidden == true) {
+                              cpasshidden = false;
+                            } else {
+                              cpasshidden = true;
+                            }
+                          });
+                        },
+                        icon: Icon(cpasshidden == true
+                            ? Icons.visibility_off_sharp
+                            : Icons.visibility))),
                 validator: (cpassword) {
                   if (cpassword!.isEmpty || cpassword != pass) {
                     return 'Password must be same / field must not be empty';
@@ -100,8 +134,8 @@ class _Registration_statefulState extends State<Registration_stateful> {
                 onPressed: () {
                   final valid = formkey.currentState!.validate();
                   if (valid) {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Login_stateful()));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => LoginPage()));
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Invalid datas')));

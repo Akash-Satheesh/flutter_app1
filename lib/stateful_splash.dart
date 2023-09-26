@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app1/login_page.dart';
+//import 'package:flutter_app1/login_page.dart';
+import 'package:flutter_app1/login_page1.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class _Splash2State extends State {
   void initState() {
     Timer(Duration(seconds: 4), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => LoginPage()));
+          MaterialPageRoute(builder: (context) => Login_stateful()));
     });
     super.initState();
   }
