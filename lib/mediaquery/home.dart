@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import 'big_screen.dart';
+import 'mobile_Screen.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: HomePage(),
+  ));
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    var devicewidth = MediaQuery.of(context).size.width;
+    if (devicewidth < 600) {
+      return MobileScreen();
+    } else {
+      return BigScreen();
+    }
+  }
+}
