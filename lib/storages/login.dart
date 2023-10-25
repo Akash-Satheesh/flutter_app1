@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/storages/home.dart';
+import 'package:flutter_app1/storages/registration_shared.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -19,10 +20,14 @@ class _LoginPage2State extends State<LoginPage2> {
   final userName = TextEditingController();
 
   final passWord = TextEditingController();
+  final username = TextEditingController();
+
+  final password = TextEditingController();
 
   late bool newuser;
 
   late SharedPreferences prefs;
+
   @override
   void initState() {
     check_user_already_login();
@@ -60,21 +65,42 @@ class _LoginPage2State extends State<LoginPage2> {
             decoration: const InputDecoration(
                 hintText: "Password", border: OutlineInputBorder()),
           ),
+          SizedBox(
+            height: 30,
+          ),
           ElevatedButton(
               onPressed: () async {
                 prefs = await SharedPreferences.getInstance();
                 String uname = userName.text.trim();
                 String pass = passWord.text.trim();
-                
-                if (uname = uname1 && pass = pass1) {
+
+                String uname1 = username.text.trim();
+
+                String pass1 = password.text.trim();
+
+                if (uname == uname1 && pass == pass1) {
                   prefs.setString('username', uname);
                   prefs.setString('password', pass);
                   prefs.setBool('firstlogin', false);
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => HomeShared()));
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('Invalid username or password')));
                 }
               },
-              child: const Text('Login'))
+              child: const Text('Login')),
+          SizedBox(
+            height: 30,
+          ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => RegistrationShared()));
+              },
+              child: Text('register here'))
         ],
       ),
     );

@@ -43,6 +43,9 @@ class _RegistrationSharedState extends State<RegistrationShared> {
             decoration: const InputDecoration(
                 hintText: "Password", border: OutlineInputBorder()),
           ),
+          SizedBox(
+            height: 30,
+          ),
           ElevatedButton(
               onPressed: () async {
                 prefs = await SharedPreferences.getInstance();
