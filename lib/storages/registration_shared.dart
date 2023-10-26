@@ -60,7 +60,7 @@ class _RegistrationSharedState extends State<RegistrationShared> {
                       MaterialPageRoute(builder: (context) => LoginPage2()));
                 }
               },
-              child: const Text('Login'))
+              child: const Text('Register'))
         ],
       ),
     );
