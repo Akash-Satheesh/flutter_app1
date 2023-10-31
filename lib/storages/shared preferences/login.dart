@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app1/storages/home.dart';
-import 'package:flutter_app1/storages/registration_shared.dart';
+import 'package:flutter_app1/storages/shared%20preferences/home.dart';
+import 'package:flutter_app1/storages/shared%20preferences/registration_shared.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -85,6 +85,7 @@ class _LoginPage2State extends State<LoginPage2> {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => HomeShared()));
                 } else {
+                  // ignore: use_build_context_synchronously
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       content: Text('Invalid username or password')));
                 }
@@ -100,7 +101,7 @@ class _LoginPage2State extends State<LoginPage2> {
                     MaterialPageRoute(
                         builder: (context) => RegistrationShared()));
               },
-              child: Text('register here'))
+              child: Text('Register here'))
         ],
       ),
     );

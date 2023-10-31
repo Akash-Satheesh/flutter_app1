@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app1/storages/login.dart';
+import 'package:flutter_app1/storages/shared%20preferences/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegistrationShared extends StatefulWidget {
