@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app1/storages/login_sqflite/database/sql_helper.dart';
 import 'package:flutter_app1/storages/login_sqflite/screens/login_sql.dart';
 
+// ignore: must_be_immutable
 class SignupPage extends StatelessWidget {
   var formkey1 = GlobalKey<FormState>();
   var conname = TextEditingController();
@@ -14,6 +15,7 @@ class SignupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     void Addnewuser(String name, String email, String password) async {
       var id = await SQLHelper.AddNewUser(name, email, password);
+      // ignore: unnecessary_null_comparison
       if (id != null) {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => LoginPage4()));
