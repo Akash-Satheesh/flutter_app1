@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -55,9 +56,29 @@ class PermissionHandle extends StatelessWidget {
     );
   }
 
-  void requestCameraPermission() {}
+  void requestCameraPermission() async {
+    var status = await Permission.camera.status;
+    if (status.isGranted) {
+      print('Permission is granted');
+    } else if (status.isDenied) {
+      if (await Permission.camera.request().isGranted) {
+        print('Permission was granted');
+      }
+    }
+  }
 
-  void requestMultiplePermission() {}
+  void requestMultiplePermission() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.location,
+      Permission.storage,
+      Permission.phone,
+      Permission.videos
+    ].request();
+    print('location permission:${statuses[Permission.location]},'
+        'storage permission:${statuses[Permission.storage]}');
+  }
 
-  void requestPermissionWithOpenSettings() {}
+  void requestPermissionWithOpenSettings() async {
+    openAppSettings();
+  }
 }
