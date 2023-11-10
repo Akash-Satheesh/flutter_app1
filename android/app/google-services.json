@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "690985128743",
+    "project_id": "project-july-73284",
+    "storage_bucket": "project-july-73284.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690985128743:android:f42faf4f33111ccd528f02",
+        "android_client_info": {
+          "package_name": "com.akash.luminar_july"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690985128743-4o3gk0htleo76boiddqbtqh1713hsstp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.akash.luminar_july",
+            "certificate_hash": "54cc6ce47c7fc3f3d1f305458e2dbe405f8d1b4b"
+          }
+        },
+        {
+          "client_id": "690985128743-fsrb6h3hjpt5dihdq6n7gm8bqarq4qnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_RRjYucAn5vgWTkG4Q-5ge_qdr7H1dDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690985128743-fsrb6h3hjpt5dihdq6n7gm8bqarq4qnd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
